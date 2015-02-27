@@ -33,11 +33,9 @@
 
 - (instancetype)initWithFromState:(AVPState *)fromState
                      toState:(AVPState *)toState {
-    
     self = [super init];
     
     if (self) {
-        
         NSParameterAssert(fromState);
         NSParameterAssert(toState);
         NSAssert([fromState isKindOfClass:[AVPFinalState class]] == NO, @"incorrect initialization – AVPFinalState cannot have any transitions!");
@@ -45,44 +43,32 @@
         _fromState = fromState;
         _toState = toState;
         _transitionCompletionBlocks = [NSMutableDictionary dictionary];
-        
     }
-    
+
     return self;
-    
 }
 
 + (instancetype)transitionWithFromState:(AVPState *)fromState
                                 toState:(AVPState *)toState {
-    
     return [[[self class] alloc] initWithFromState:fromState toState:toState];
-    
 }
 
 #pragma mark - completion blocks
 
 - (void)setCompletionBlock:(AVPTransitionCompletionBlock)completionBlock transitionLifeCycle:(AVPTransitionLifeCycle)transitionLifeCycle {
-
     self.transitionCompletionBlocks[[self completionBlockKeyForTransitionLifeCycle:transitionLifeCycle]] = completionBlock;
-
 }
 
 - (void)invokeCompletionBlockForTransitionLifeCycle:(AVPTransitionLifeCycle)transitionLifeCycle {
-
     AVPTransitionCompletionBlock block = (AVPTransitionCompletionBlock)self.transitionCompletionBlocks[[self completionBlockKeyForTransitionLifeCycle:transitionLifeCycle]];
-
+    
     if (block) {
-
         block(self);
-
     }
-
 }
 
 - (id <NSCopying>)completionBlockKeyForTransitionLifeCycle:(AVPTransitionLifeCycle)transitionLifeCycle {
-
     return @(transitionLifeCycle);
-
 }
 
 @end

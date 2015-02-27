@@ -34,9 +34,7 @@
 
 
 - (NSString *)description {
-    
-    return [NSString stringWithFormat:@"Final %@", [super description]];
-    
+    return [NSString stringWithFormat:@"Final %@", [super description]];    
 }
 
 @end
