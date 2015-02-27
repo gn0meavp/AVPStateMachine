@@ -33,6 +33,28 @@
 //                                 Cancel  (accessible from any state if cancel state machine)
 //
 
+
+//  Result output:
+//        Let's sing a song!
+//        state 'start state' worked nan sec.
+//        #state_machine 'Test state machine' stateFinished: 'start state' eventName: 'kSampleStartEventName' error: '(null)'
+//        #state_machine 'Test state machine' stateStarted: 'Do state'
+//        Do!
+//        state 'Do state' worked 0.000291 sec.
+//        #state_machine 'Test state machine' stateFinished: 'Do state' eventName: 'kDoReEventName' error: '(null)'
+//        #state_machine 'Test state machine' stateStarted: 'Re state'
+//        Re
+//        state 'Re state' worked 0.000239 sec.
+//        #state_machine 'Test state machine' stateFinished: 'Re state' eventName: 'kReMiEventName' error: '(null)'
+//        #state_machine 'Test state machine' stateStarted: 'Mi state'
+//        Mi
+//        state 'Mi state' worked 0.000261 sec.
+//        #state_machine 'Test state machine' stateFinished: 'Mi state' eventName: 'kMiSuccessEventName' error: '(null)'
+//        #state_machine 'Test state machine' stateStarted: 'success'
+//        state 'success' worked 0.000115 sec.
+//        #state_machine 'Test state machine' stateFinished: 'success' eventName: 'kFinalStateCompletedEventName' error: '(null)'
+//        State machine 'Test state machine' finish successfully
+
 @interface SampleClass : NSObject
 
 - (void)start;
