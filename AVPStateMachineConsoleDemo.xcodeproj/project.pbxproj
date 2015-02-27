@@ -8,10 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		C61627EF1A8683020001DC08 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C61627EE1A8683020001DC08 /* main.m */; };
-		C616280A1A8683E10001DC08 /* AVPFinalState.m in Sources */ = {isa = PBXBuildFile; fileRef = C61628031A8683E10001DC08 /* AVPFinalState.m */; };
-		C616280B1A8683E10001DC08 /* AVPState.m in Sources */ = {isa = PBXBuildFile; fileRef = C61628051A8683E10001DC08 /* AVPState.m */; };
-		C616280C1A8683E10001DC08 /* AVPStateMachine.m in Sources */ = {isa = PBXBuildFile; fileRef = C61628071A8683E10001DC08 /* AVPStateMachine.m */; };
-		C616280D1A8683E10001DC08 /* AVPTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = C61628091A8683E10001DC08 /* AVPTransition.m */; };
 		C61628101A8684200001DC08 /* SampleClass.m in Sources */ = {isa = PBXBuildFile; fileRef = C616280F1A8684200001DC08 /* SampleClass.m */; };
 		C63C35461AA0AB6F003EBA66 /* SampleState1.m in Sources */ = {isa = PBXBuildFile; fileRef = C63C35451AA0AB6F003EBA66 /* SampleState1.m */; };
 		C63C35491AA0AB78003EBA66 /* SampleState2.m in Sources */ = {isa = PBXBuildFile; fileRef = C63C35481AA0AB78003EBA66 /* SampleState2.m */; };
@@ -21,6 +17,10 @@
 		C63C35561AA0B189003EBA66 /* SampleState3.m in Sources */ = {isa = PBXBuildFile; fileRef = C63C35551AA0B189003EBA66 /* SampleState3.m */; };
 		C63C35591AA0B195003EBA66 /* SampleStartState.m in Sources */ = {isa = PBXBuildFile; fileRef = C63C35581AA0B195003EBA66 /* SampleStartState.m */; };
 		C63C355C1AA0BB9A003EBA66 /* SampleState4.m in Sources */ = {isa = PBXBuildFile; fileRef = C63C355B1AA0BB9A003EBA66 /* SampleState4.m */; };
+		C63C35651AA0C696003EBA66 /* AVPStateMachine.m in Sources */ = {isa = PBXBuildFile; fileRef = C63C355D1AA0C696003EBA66 /* AVPStateMachine.m */; };
+		C63C35661AA0C696003EBA66 /* AVPState.m in Sources */ = {isa = PBXBuildFile; fileRef = C63C355E1AA0C696003EBA66 /* AVPState.m */; };
+		C63C35671AA0C696003EBA66 /* AVPTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = C63C35611AA0C696003EBA66 /* AVPTransition.m */; };
+		C63C35681AA0C696003EBA66 /* AVPFinalState.m in Sources */ = {isa = PBXBuildFile; fileRef = C63C35631AA0C696003EBA66 /* AVPFinalState.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -38,14 +38,6 @@
 /* Begin PBXFileReference section */
 		C61627EB1A8683020001DC08 /* AVPStateMachineConsoleDemo */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = AVPStateMachineConsoleDemo; sourceTree = BUILT_PRODUCTS_DIR; };
 		C61627EE1A8683020001DC08 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		C61628021A8683E10001DC08 /* AVPFinalState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AVPFinalState.h; sourceTree = "<group>"; };
-		C61628031A8683E10001DC08 /* AVPFinalState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AVPFinalState.m; sourceTree = "<group>"; };
-		C61628041A8683E10001DC08 /* AVPState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AVPState.h; sourceTree = "<group>"; };
-		C61628051A8683E10001DC08 /* AVPState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AVPState.m; sourceTree = "<group>"; };
-		C61628061A8683E10001DC08 /* AVPStateMachine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AVPStateMachine.h; sourceTree = "<group>"; };
-		C61628071A8683E10001DC08 /* AVPStateMachine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AVPStateMachine.m; sourceTree = "<group>"; };
-		C61628081A8683E10001DC08 /* AVPTransition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AVPTransition.h; sourceTree = "<group>"; };
-		C61628091A8683E10001DC08 /* AVPTransition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AVPTransition.m; sourceTree = "<group>"; };
 		C616280E1A8684200001DC08 /* SampleClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SampleClass.h; sourceTree = "<group>"; };
 		C616280F1A8684200001DC08 /* SampleClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SampleClass.m; sourceTree = "<group>"; };
 		C63C35441AA0AB6F003EBA66 /* SampleState1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SampleState1.h; sourceTree = "<group>"; };
@@ -64,6 +56,14 @@
 		C63C35581AA0B195003EBA66 /* SampleStartState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SampleStartState.m; sourceTree = "<group>"; };
 		C63C355A1AA0BB9A003EBA66 /* SampleState4.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SampleState4.h; sourceTree = "<group>"; };
 		C63C355B1AA0BB9A003EBA66 /* SampleState4.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SampleState4.m; sourceTree = "<group>"; };
+		C63C355D1AA0C696003EBA66 /* AVPStateMachine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AVPStateMachine.m; path = AVPStateMachine/AVPStateMachine.m; sourceTree = "<group>"; };
+		C63C355E1AA0C696003EBA66 /* AVPState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AVPState.m; path = AVPStateMachine/AVPState.m; sourceTree = "<group>"; };
+		C63C355F1AA0C696003EBA66 /* AVPStateMachine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AVPStateMachine.h; path = AVPStateMachine/AVPStateMachine.h; sourceTree = "<group>"; };
+		C63C35601AA0C696003EBA66 /* AVPTransition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AVPTransition.h; path = AVPStateMachine/AVPTransition.h; sourceTree = "<group>"; };
+		C63C35611AA0C696003EBA66 /* AVPTransition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AVPTransition.m; path = AVPStateMachine/AVPTransition.m; sourceTree = "<group>"; };
+		C63C35621AA0C696003EBA66 /* AVPState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AVPState.h; path = AVPStateMachine/AVPState.h; sourceTree = "<group>"; };
+		C63C35631AA0C696003EBA66 /* AVPFinalState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AVPFinalState.m; path = AVPStateMachine/AVPFinalState.m; sourceTree = "<group>"; };
+		C63C35641AA0C696003EBA66 /* AVPFinalState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AVPFinalState.h; path = AVPStateMachine/AVPFinalState.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,14 +106,14 @@
 		C61628011A8683D00001DC08 /* AVPStateMachine */ = {
 			isa = PBXGroup;
 			children = (
-				C61628021A8683E10001DC08 /* AVPFinalState.h */,
-				C61628031A8683E10001DC08 /* AVPFinalState.m */,
-				C61628041A8683E10001DC08 /* AVPState.h */,
-				C61628051A8683E10001DC08 /* AVPState.m */,
-				C61628061A8683E10001DC08 /* AVPStateMachine.h */,
-				C61628071A8683E10001DC08 /* AVPStateMachine.m */,
-				C61628081A8683E10001DC08 /* AVPTransition.h */,
-				C61628091A8683E10001DC08 /* AVPTransition.m */,
+				C63C355D1AA0C696003EBA66 /* AVPStateMachine.m */,
+				C63C355E1AA0C696003EBA66 /* AVPState.m */,
+				C63C355F1AA0C696003EBA66 /* AVPStateMachine.h */,
+				C63C35601AA0C696003EBA66 /* AVPTransition.h */,
+				C63C35611AA0C696003EBA66 /* AVPTransition.m */,
+				C63C35621AA0C696003EBA66 /* AVPState.h */,
+				C63C35631AA0C696003EBA66 /* AVPFinalState.m */,
+				C63C35641AA0C696003EBA66 /* AVPFinalState.h */,
 			);
 			name = AVPStateMachine;
 			sourceTree = "<group>";
@@ -210,17 +210,17 @@
 				C63C354C1AA0AB81003EBA66 /* SampleSuccessFinalState.m in Sources */,
 				C63C35461AA0AB6F003EBA66 /* SampleState1.m in Sources */,
 				C63C35591AA0B195003EBA66 /* SampleStartState.m in Sources */,
-				C616280D1A8683E10001DC08 /* AVPTransition.m in Sources */,
 				C63C355C1AA0BB9A003EBA66 /* SampleState4.m in Sources */,
+				C63C35681AA0C696003EBA66 /* AVPFinalState.m in Sources */,
 				C63C35561AA0B189003EBA66 /* SampleState3.m in Sources */,
+				C63C35661AA0C696003EBA66 /* AVPState.m in Sources */,
 				C61627EF1A8683020001DC08 /* main.m in Sources */,
+				C63C35671AA0C696003EBA66 /* AVPTransition.m in Sources */,
 				C61628101A8684200001DC08 /* SampleClass.m in Sources */,
-				C616280A1A8683E10001DC08 /* AVPFinalState.m in Sources */,
 				C63C35521AA0B0A5003EBA66 /* SampleCancelledFinalState.m in Sources */,
-				C616280C1A8683E10001DC08 /* AVPStateMachine.m in Sources */,
+				C63C35651AA0C696003EBA66 /* AVPStateMachine.m in Sources */,
 				C63C35531AA0B0A5003EBA66 /* SampleFailureFinalState.m in Sources */,
 				C63C35491AA0AB78003EBA66 /* SampleState2.m in Sources */,
-				C616280B1A8683E10001DC08 /* AVPState.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
