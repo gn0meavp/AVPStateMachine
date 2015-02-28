@@ -19,9 +19,9 @@
 
 - (void)testTransitionShouldStoreFromState {
     
-    AVPState *state = [[AVPState alloc] initWithName:nil];
-    
-    AVPTransition *transition = [[AVPTransition alloc] initWithFromState:state toState:nil];
+    AVPState *state = [[AVPState alloc] initWithName:@"name"];
+    AVPState *state2 = [[AVPState alloc] initWithName:@"name2"];
+    AVPTransition *transition = [[AVPTransition alloc] initWithFromState:state toState:state2];
     
     XCTAssert(transition.fromState == state, @"transition must store fromState");
 
@@ -30,18 +30,18 @@
 
 - (void)testTransitionShouldStoreToState {
 
-    AVPState *state = [[AVPState alloc] initWithName:nil];
+    AVPState *state = [[AVPState alloc] initWithName:@"name"];
+    AVPState *state2 = [[AVPState alloc] initWithName:@"name2"];
+    AVPTransition *transition = [[AVPTransition alloc] initWithFromState:state toState:state2];
     
-    AVPTransition *transition = [[AVPTransition alloc] initWithFromState:nil toState:state];
-    
-    XCTAssert(transition.toState == state, @"transition must store fromState");
+    XCTAssert(transition.toState == state2, @"transition must store fromState");
     
 }
 
 - (void)testTransitionShouldSupportClassMethod {
     
-    AVPState *state0 = [[AVPState alloc] initWithName:nil];
-    AVPState *state1 = [[AVPState alloc] initWithName:nil];
+    AVPState *state0 = [[AVPState alloc] initWithName:@"name0"];
+    AVPState *state1 = [[AVPState alloc] initWithName:@"name1"];
 
     AVPTransition *transition = [AVPTransition transitionWithFromState:state0 toState:state1];
     
@@ -51,8 +51,8 @@
 
 - (void)testPerformanceTransitionCreation {
     
-    AVPState *state0 = [[AVPState alloc] initWithName:nil];
-    AVPState *state1 = [[AVPState alloc] initWithName:nil];
+    AVPState *state0 = [[AVPState alloc] initWithName:@"name0"];
+    AVPState *state1 = [[AVPState alloc] initWithName:@"name1"];
     
     __block AVPTransition *transition = nil;
     

@@ -44,7 +44,7 @@
 
 - (void)testStateShouldHaveIsRunningFalseAtBeforeState {
     
-    AVPState *state = [[AVPState alloc] initWithName:nil];
+    AVPState *state = [[AVPState alloc] initWithName:@"name"];
     
     XCTAssertFalse([state isRunning], @"state must have isRunning == NO before start");
     
@@ -53,7 +53,7 @@
 
 - (void)testStateShouldHaveIsRunningTrueAfterStart {
     
-    AVPState *state = [[AVPState alloc] initWithName:nil];
+    AVPState *state = [[AVPState alloc] initWithName:@"name"];
     
     [state start];
     
@@ -63,7 +63,7 @@
 
 - (void)testStateShouldHaveIsCancelledFalseBeforeCancel {
 
-    AVPState *state = [[AVPState alloc] initWithName:nil];
+    AVPState *state = [[AVPState alloc] initWithName:@"name"];
     
     [state start];
     
@@ -73,7 +73,7 @@
 
 - (void)testStateShouldHaveIsCancelledTrueAfterCancel {
     
-    AVPState *state = [[AVPState alloc] initWithName:nil];
+    AVPState *state = [[AVPState alloc] initWithName:@"name"];
     
     [state start];
     [state cancel];
@@ -123,7 +123,7 @@
         result = YES;
     };
     
-    AVPState *state = [[AVPState alloc] initWithName:nil];
+    AVPState *state = [[AVPState alloc] initWithName:@"name"];
     [state setCompletionBlock:completionBlock stateLifeCycle:AVPStateLifeCycleWillEnter];
     
     [state invokeCompletionBlockForStateLifeCycle:AVPStateLifeCycleWillEnter];
@@ -139,7 +139,7 @@
         result = YES;
     };
     
-    AVPState *state = [[AVPState alloc] initWithName:nil];
+    AVPState *state = [[AVPState alloc] initWithName:@"name"];
     [state setCompletionBlock:completionBlock stateLifeCycle:AVPStateLifeCycleDidEnter];
     
     [state invokeCompletionBlockForStateLifeCycle:AVPStateLifeCycleDidEnter];
@@ -155,7 +155,7 @@
         result = YES;
     };
     
-    AVPState *state = [[AVPState alloc] initWithName:nil];
+    AVPState *state = [[AVPState alloc] initWithName:@"name"];
     [state setCompletionBlock:completionBlock stateLifeCycle:AVPStateLifeCycleWillLeave];
     
     [state invokeCompletionBlockForStateLifeCycle:AVPStateLifeCycleWillLeave];
@@ -171,7 +171,7 @@
         result = YES;
     };
     
-    AVPState *state = [[AVPState alloc] initWithName:nil];
+    AVPState *state = [[AVPState alloc] initWithName:@"name"];
     [state setCompletionBlock:completionBlock stateLifeCycle:AVPStateLifeCycleDidLeave];
     
     [state invokeCompletionBlockForStateLifeCycle:AVPStateLifeCycleDidLeave];
@@ -185,7 +185,7 @@
 - (void)testStateShouldCallDelegateMethodAtStart {
     
     AVPMockStateDelegate *stateDelegate = [AVPMockStateDelegate new];
-    AVPState *state = [[AVPState alloc] initWithName:nil];
+    AVPState *state = [[AVPState alloc] initWithName:@"name"];
     state.delegate = stateDelegate;
     
     id mockDelegate = OCMPartialMock(stateDelegate);
@@ -200,7 +200,7 @@
 - (void)testStateShouldCallDelegateMethodAtCompletedSuccessfully {
     
     AVPMockStateDelegate *stateDelegate = [AVPMockStateDelegate new];
-    AVPTestSimpleState *state = [[AVPTestSimpleState alloc] initWithName:nil];
+    AVPTestSimpleState *state = [[AVPTestSimpleState alloc] initWithName:@"name"];
     state.delegate = stateDelegate;
     
     id mockDelegate = OCMPartialMock(stateDelegate);
@@ -215,7 +215,7 @@
 - (void)testStateShouldCallDelegateMethodAtCompletedFailure {
     
     AVPMockStateDelegate *stateDelegate = [AVPMockStateDelegate new];
-    AVPTestSimpleFailureState *state = [[AVPTestSimpleFailureState alloc] initWithName:nil];
+    AVPTestSimpleFailureState *state = [[AVPTestSimpleFailureState alloc] initWithName:@"name"];
     state.delegate = stateDelegate;
     
     id mockDelegate = OCMPartialMock(stateDelegate);
@@ -230,7 +230,7 @@
 - (void)testStateShouldCallDelegateMethodAtCompletedCancelled {
     
     AVPMockStateDelegate *stateDelegate = [AVPMockStateDelegate new];
-    AVPTestSimpleCancelState *state = [[AVPTestSimpleCancelState alloc] initWithName:nil];
+    AVPTestSimpleCancelState *state = [[AVPTestSimpleCancelState alloc] initWithName:@"name"];
     state.delegate = stateDelegate;
     
     id mockDelegate = OCMPartialMock(stateDelegate);

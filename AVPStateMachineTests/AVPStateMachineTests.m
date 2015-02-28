@@ -73,7 +73,8 @@
     AVPState *state1 = [[AVPState alloc] initWithName:@"state1"];
     
     AVPTransition *transition = [[AVPTransition alloc] initWithFromState:state0 toState:state1];
-    
+    [self.stateMachine addState:state0];
+    [self.stateMachine addState:state1];
     [self.stateMachine addTransition:transition eventName:eventName];
     
     NSDictionary *transitions = [self.stateMachine transitionsForState:state0];
@@ -90,6 +91,10 @@
     AVPState *state1 = [[AVPState alloc] initWithName:@"state1"];
     AVPState *state2 = [[AVPState alloc] initWithName:@"state2"];
     AVPState *state3 = [[AVPState alloc] initWithName:@"state3"];
+    
+    [self.stateMachine addState:state1];
+    [self.stateMachine addState:state2];
+    [self.stateMachine addState:state3];
     
     AVPTransition *transition1 = [[AVPTransition alloc] initWithFromState:state1 toState:state2];
     AVPTransition *transition2 = [[AVPTransition alloc] initWithFromState:state1 toState:state3];
@@ -113,6 +118,9 @@
     AVPState *state1 = [[AVPState alloc] initWithName:@"state1"];
     AVPState *state2 = [[AVPState alloc] initWithName:@"state2"];
     
+    [self.stateMachine addState:state1];
+    [self.stateMachine addState:state2];
+    
     AVPTransition *transition1 = [[AVPTransition alloc] initWithFromState:state1 toState:state2];
     
     [self.stateMachine addTransition:transition1 eventName:eventName1];
@@ -135,7 +143,7 @@
     
     id < AVPStateMachineDelegate > delegate = OCMProtocolMock(@protocol(AVPStateMachineDelegate));
     
-    AVPStateMachine *stateMachine = [[AVPStateMachine alloc] initWithName:nil delegate:delegate];
+    AVPStateMachine *stateMachine = [[AVPStateMachine alloc] initWithName:@"name" delegate:delegate];
     
     XCTAssert(stateMachine.delegate == delegate, @"state machine must store its delegate");
     
