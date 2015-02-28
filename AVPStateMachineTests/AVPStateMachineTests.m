@@ -6,7 +6,7 @@
 //  Copyright (c) 2014 TestOrg. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import <Foundation/Foundation.h>
 #import <XCTest/XCTest.h>
 #import <OCMock/OCMock.h>
 #import "AVPStateMachine.h"
