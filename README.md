@@ -252,3 +252,15 @@ So if you'd like to manage your State with some additional logic, you could use 
 ```objectivec
     [state setCompletionBlock:completionBlock stateLifeCycle:AVPStateLifeCycleWillEnter];
 ```
+
+### Unit Tests
+
+AVPStateMachine tested with using XCTest and OCMock
+
+### Contacts
+
+* http://alexey.patosin.ru
+
+### License
+
+AVPStateMachine is available under the MIT license. See the LICENSE file for more info.
