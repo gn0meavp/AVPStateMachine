@@ -6,6 +6,9 @@ Implementation of Finite-state Machine in Objective-C
 * Transitions use for connecting States by the coming Events
 * Special States for start and completion (success, failure or cancel)
 * Cancellation supports for any State
+* Automatically tranfer objects between states
+* Easily can be tested with unit tests
+* Simple validation of the state machine graph (verify that all states are reachable and managed properly).
 
 # Usage
 
@@ -149,3 +152,28 @@ Now we need to manage our State Machine to switch between states with using Even
     [_stateMachine addTransition:transitionDoFailed eventName:kDoFailedEventName];
     [_stateMachine addTransition:transitionFaFailed eventName:kFaFailedEventName];
 ```
+
+### Validation
+
+State machine can contains a lot of states (one project in production uses AVPStateMachine with more than 20 transitions). There's a special feature to verify that the state machine is managed properly, that all appended states used and have some connection to switch and that from any state there's a way to come to the final state.
+
+Validation uses simple graph traversing algorithm (DFS) for that.
+
+So we could validate our state machine by simple code:
+
+```objectivec
+    NSError *error = nil;
+    
+    if ([_stateMachine isValidWithError:&error] == NO) {
+        NSLog(@"state machine failed with error: %@", error);
+    }
+```
+
+This validation go through the next steps:
+
+* check that start State is managed
+* check that success, failure and cancel States are managed
+* check that there're no any two States with the same name
+* check that by traversing from start State all managed States are reachable by Transitions and from these states  at success or failure States
+
+As traversing graph may takes some time and as usual managing graph is not processed in runtime it is a good advice to use the validation in your unit tests.
