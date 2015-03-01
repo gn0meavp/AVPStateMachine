@@ -28,7 +28,7 @@ AVPStateMachine supports separate States for start and completion (<i>AVPFinalSt
 
 To make our sample more complex, let's imagine that during playing Do and Fa something may happened and we must fail the whole process. In these cases state machine should go to the failure final state.
 
-So our complete state machine will look like that:
+So our state machine will look like that:
 
 <img src="https://github.com/gn0meavp/AVPStateMachine/raw/master/manual/sample-scheme-01.png" alt="asdf" width="300">
 
