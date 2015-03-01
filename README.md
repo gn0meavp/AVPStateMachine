@@ -30,7 +30,7 @@ To make our sample more complex, let's imagine that during playing Do and Fa som
 
 So our complete state machine will look like that:
 
-<img src="https://github.com/gn0meavp/AVPStateMachine/raw/gn0meavp-patch-1/manual/sample-scheme-01.png" alt="asdf" width="300">
+<img src="https://github.com/gn0meavp/AVPStateMachine/raw/master/manual/sample-scheme-01.png" alt="asdf" width="300">
 
 ### Creating State Machine
 
