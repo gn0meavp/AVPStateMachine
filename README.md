@@ -3,7 +3,7 @@ Implementation of Finite-state Machine in Objective-C
 
 http://en.wikipedia.org/wiki/Finite-state_machine
 
-# Features
+## Features
 * States inherited from the basic State class
 * Transitions use for connecting States by the coming Events
 * Special States for start and completion (success, failure or cancel)
@@ -12,15 +12,15 @@ http://en.wikipedia.org/wiki/Finite-state_machine
 * Managed State Machine can be easily tested with unit tests
 * Simple validation of the state machine graph (verify that all states are reachable and managed properly)
 
-# Usage
+## Usage
 
-## Demo
+### Demo
 
 See AVPStateMachineConsoleDemo project as a sample
 
-## Example
+### Example
 
-### Overview
+#### Overview
 
 Let's create simple finite-state machine which plays Do-Re-Mi and Do-Fa in different cases.
 
@@ -32,7 +32,7 @@ So our complete state machine will look like that:
 
 <img src="https://github.com/gn0meavp/AVPStateMachine/raw/master/manual/sample-scheme-01.png" alt="asdf" width="300">
 
-### Creating State Machine
+#### Creating State Machine
 
 The easiest part is to create the state machine:
 
@@ -104,7 +104,7 @@ Now we could initialize this state:
     SampleState1 *doState = [SampleState1 stateWithName:@"Do state"];
 ```
 
-### Append States to State Machine
+#### Append States to State Machine
 
 After creating all states, let's add them to our State Machine:
 
@@ -124,7 +124,7 @@ After creating all states, let's add them to our State Machine:
     [_stateMachine addState:faState];
 ```
 
-### Create transitions
+#### Create transitions
 
 Now we need to manage our State Machine to switch between states with using Events:
 
@@ -157,7 +157,7 @@ Now we need to manage our State Machine to switch between states with using Even
 
 <b>Important</b> State Machine checks with asserts that all States used in Transitions already be appended to State Machine.
 
-### Validation
+#### Validation
 
 State machine may contains a lot of states (one project in production uses AVPStateMachine with more than 20 transitions). There's a special feature to verify that the state machine is managed properly, that all appended states used and have some connection to switch and that from any state there's a way to come to the final state.
 
@@ -182,7 +182,7 @@ This validation goes through the next steps:
 
 <b>Advise</b> As traversing graph may takes some time and as usual managing graph is not processed in runtime it is a good advice to use the validation in your unit tests.
 
-### Start State Machine
+#### Start State Machine
 
 To start State Machine just need one more line of code:
 
@@ -190,7 +190,7 @@ To start State Machine just need one more line of code:
     [self.stateMachine start];
 ```
 
-### Cancel State Machine
+#### Cancel State Machine
 
 If you need to cancel State Machine at any time, use the next method:
 
@@ -200,7 +200,7 @@ If you need to cancel State Machine at any time, use the next method:
 
 <b>Important</b> You don't need to manage transitions to Cancel State. Actually any State may be cancelled. So when this method is called, it invokes <i>cancel</i> method of the current State and set <i>isCancelled</i> property of this state. You have to check from time to time this property and invoke <i>performDelegateMethodCancel</i> method to switch to the Cancel State.
 
-### Transfering objects between states
+#### Transfering objects between states
 
 If you need to pass some object between different states there's special feature for that. Each state has two properties:
 
@@ -234,7 +234,7 @@ If you need to start State Machine with some object you could also use inputObje
     startState.inputObject = object;
 ```
 
-### Additional logic for States with Blocks
+#### Additional logic for States with Blocks
 
 Each State could be managed remotely by using blocks. There are four blocks for four events of each blocks:
 
@@ -253,14 +253,14 @@ So if you'd like to manage your State with some additional logic, you could use 
     [state setCompletionBlock:completionBlock stateLifeCycle:AVPStateLifeCycleWillEnter];
 ```
 
-### Unit Tests
+## Unit Tests
 
 AVPStateMachine tested with using XCTest and OCMock
 
-### Contacts
+## Contacts
 
 * http://alexey.patosin.ru
 
-### License
+## License
 
 AVPStateMachine is available under the MIT license. See the LICENSE file for more info.
