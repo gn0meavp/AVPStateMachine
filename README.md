@@ -177,3 +177,54 @@ This validation go through the next steps:
 * check that by traversing from start State all managed States are reachable by Transitions and from these states  at success or failure States
 
 As traversing graph may takes some time and as usual managing graph is not processed in runtime it is a good advice to use the validation in your unit tests.
+
+### Start State Machine
+
+To start State Machine just need one more line of code:
+
+```objectivec
+    [self.stateMachine start];
+```
+
+### Cancel State Machine
+
+If you need to cancel State Machine, use the next method:
+
+```objectivec
+    [self.stateMachine cancel];
+```
+
+<b>Important</b> You don't need to manage transitions to Cancel State. Actually any State may be cancelled. So when this method is called, it is forward cancel event to the current State and set <i>isCancelled</i> property of the state. You have to check from time to time this property and invoke <i>performDelegateMethodCancel</i> method to switch to the Cancel State.
+
+### Transfering objects between states
+
+If you need to pass some object between different states there's implemented a special feature for that. Each state has two properties:
+
+```objectivec
+@property (nonatomic, strong) id inputObject;       // set before start
+@property (nonatomic, strong) id outputObject;      // provide information for the next state before switch
+```
+
+So if you need to transfer something from DoState to the next State you could manage it like that:
+
+```objectivec
+    // passing some object to the next state
+    self.outputObject = @"Sample description that should be transfered to the Re";
+        
+    [self performDelegateMethodCompletedWithEventName:kDoReEventName error:nil];
+```
+
+Now in the next State you could take this object:
+
+```objectivec
+    if (self.inputObject) {
+        NSLog(@"Get some object from the previous state: %@", self.inputObject);
+    }
+```
+
+If you need to start State Machine with some object you could also use inputObject for the Start State
+
+```objectivec
+    startState.inputObject = object;
+```
+
