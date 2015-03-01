@@ -1,14 +1,16 @@
 # AVPStateMachine
 Implementation of Finite-state Machine in Objective-C
 
+http://en.wikipedia.org/wiki/Finite-state_machine
+
 # Features
 * States inherited from the basic State class
 * Transitions use for connecting States by the coming Events
 * Special States for start and completion (success, failure or cancel)
 * Cancellation supports for any State
-* Automatically tranfer objects between states
-* Easily can be tested with unit tests
-* Simple validation of the state machine graph (verify that all states are reachable and managed properly).
+* Automatically transfer objects between states
+* Managed State Machine can be easily tested with unit tests
+* Simple validation of the state machine graph (verify that all states are reachable and managed properly)
 
 # Usage
 
@@ -35,23 +37,23 @@ So our complete state machine will look like that:
 The easiest part is to create the state machine:
 
 ```objectivec
-stateMachine = [[AVPStateMachine alloc] initWithName:@"Test state machine" delegate:self];
+    stateMachine = [[AVPStateMachine alloc] initWithName:@"Test state machine" delegate:self];
 ```
 
 Don't forget about delegate methods:
 
 ```objective-c
-- (void)stateMachineCompletedWithSuccessState:(AVPStateMachine *)stateMachine {
-    NSLog(@"State machine '%@' finish successfully", stateMachine.name);
-}
+    - (void)stateMachineCompletedWithSuccessState:(AVPStateMachine *)stateMachine {
+        NSLog(@"State machine '%@' finish successfully", stateMachine.name);
+    }
 
-- (void)stateMachineCompletedWithFailureState:(AVPStateMachine *)stateMachine {
-    NSLog(@"State machine '%@' is failed", stateMachine.name);
-}
+    - (void)stateMachineCompletedWithFailureState:(AVPStateMachine *)stateMachine {
+        NSLog(@"State machine '%@' is failed", stateMachine.name);
+    }
 
-- (void)stateMachineCompletedWithCancelState:(AVPStateMachine *)stateMachine {
-    NSLog(@"State machine '%@' is cancelled", stateMachine.name);
-}
+    - (void)stateMachineCompletedWithCancelState:(AVPStateMachine *)stateMachine {
+        NSLog(@"State machine '%@' is cancelled", stateMachine.name);
+    }
 ```
 
 ### Creating States
@@ -59,40 +61,40 @@ Don't forget about delegate methods:
 Each state should be inherited from one of the base states <i>AVPState</i> or <i>AVPFinalState</i>. So let's create some of them.
 
 ```objective-c
-static NSString * const kDoReEventName = @"kDoReEventName";
-static NSString * const kDoFaEventName = @"kDoFaEventName";
-static NSString * const kDoFailedEventName = @"kDoFailedEventName";
+    static NSString * const kDoReEventName = @"kDoReEventName";
+    static NSString * const kDoFaEventName = @"kDoFaEventName";
+    static NSString * const kDoFailedEventName = @"kDoFailedEventName";
 
-@interface SampleState1 : AVPState
+    @interface SampleState1 : AVPState
 
-@end
+    @end
 ```
 
 Here we created a sample State and define events which will be used in that state for the transitions.
 
-Inside <i>start</i> method must be implemented the logic for the certain state. It could be implemented in a sync or async way
+Inside <i>start</i> method must be implemented the logic for the certain state. It could be implemented in a sync or async way demand on your needs.
 
 ```objective-c
 
-- (void)start {
-    [super start];
+    - (void)start {
+        [super start];
     
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        NSLog(@"Do!");
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            NSLog(@"Do!");
         
-        NSUInteger randValue = arc4random()%3;
-        
-        if (randValue == 0) {
-            [self performDelegateMethodCompletedWithEventName:kDoReEventName error:nil];
-        }
-        else if (randValue == 1) {
-            [self performDelegateMethodCompletedWithEventName:kDoFaEventName error:nil];
-        }
-        else {
-            [self performDelegateMethodCompletedWithEventName:kDoFailedEventName error:nil];
-        }
-    });
-}
+            NSUInteger randValue = arc4random()%3;
+            
+            if (randValue == 0) {
+                [self performDelegateMethodCompletedWithEventName:kDoReEventName error:nil];
+            }
+            else if (randValue == 1) {
+                [self performDelegateMethodCompletedWithEventName:kDoFaEventName error:nil];
+            }
+            else {
+                [self performDelegateMethodCompletedWithEventName:kDoFailedEventName error:nil];
+            }
+        });
+    }
 ```
 Here we implemented a sample async logic of the Do State with some random behavior to switch to Re, Fa or Failed State.
 
@@ -153,9 +155,11 @@ Now we need to manage our State Machine to switch between states with using Even
     [_stateMachine addTransition:transitionFaFailed eventName:kFaFailedEventName];
 ```
 
+<b>Important</b> State Machine checks with asserts that all States used in Transitions already be appended to State Machine.
+
 ### Validation
 
-State machine can contains a lot of states (one project in production uses AVPStateMachine with more than 20 transitions). There's a special feature to verify that the state machine is managed properly, that all appended states used and have some connection to switch and that from any state there's a way to come to the final state.
+State machine may contains a lot of states (one project in production uses AVPStateMachine with more than 20 transitions). There's a special feature to verify that the state machine is managed properly, that all appended states used and have some connection to switch and that from any state there's a way to come to the final state.
 
 Validation uses simple graph traversing algorithm (DFS) for that.
 
@@ -169,14 +173,14 @@ So we could validate our state machine by simple code:
     }
 ```
 
-This validation go through the next steps:
+This validation goes through the next steps:
 
 * check that start State is managed
 * check that success, failure and cancel States are managed
 * check that there're no any two States with the same name
 * check that by traversing from start State all managed States are reachable by Transitions and from these states  at success or failure States
 
-As traversing graph may takes some time and as usual managing graph is not processed in runtime it is a good advice to use the validation in your unit tests.
+<b>Advise</b> As traversing graph may takes some time and as usual managing graph is not processed in runtime it is a good advice to use the validation in your unit tests.
 
 ### Start State Machine
 
@@ -188,21 +192,21 @@ To start State Machine just need one more line of code:
 
 ### Cancel State Machine
 
-If you need to cancel State Machine, use the next method:
+If you need to cancel State Machine at any time, use the next method:
 
 ```objectivec
     [self.stateMachine cancel];
 ```
 
-<b>Important</b> You don't need to manage transitions to Cancel State. Actually any State may be cancelled. So when this method is called, it is forward cancel event to the current State and set <i>isCancelled</i> property of the state. You have to check from time to time this property and invoke <i>performDelegateMethodCancel</i> method to switch to the Cancel State.
+<b>Important</b> You don't need to manage transitions to Cancel State. Actually any State may be cancelled. So when this method is called, it invokes <i>cancel</i> method of the current State and set <i>isCancelled</i> property of this state. You have to check from time to time this property and invoke <i>performDelegateMethodCancel</i> method to switch to the Cancel State.
 
 ### Transfering objects between states
 
-If you need to pass some object between different states there's implemented a special feature for that. Each state has two properties:
+If you need to pass some object between different states there's special feature for that. Each state has two properties:
 
 ```objectivec
-@property (nonatomic, strong) id inputObject;       // set before start
-@property (nonatomic, strong) id outputObject;      // provide information for the next state before switch
+    @property (nonatomic, strong) id inputObject;       // set before start
+    @property (nonatomic, strong) id outputObject;      // provide information for the next state before switch
 ```
 
 So if you need to transfer something from DoState to the next State you could manage it like that:
@@ -214,7 +218,7 @@ So if you need to transfer something from DoState to the next State you could ma
     [self performDelegateMethodCompletedWithEventName:kDoReEventName error:nil];
 ```
 
-Now in the next State you could take this object:
+Now in the next State you could get this object at any time:
 
 ```objectivec
     if (self.inputObject) {
@@ -222,9 +226,29 @@ Now in the next State you could take this object:
     }
 ```
 
+You don't need to take outputObject of the previous State and pass it to the inputObject of the next State. AVPStateMachine does it automatically.
+
 If you need to start State Machine with some object you could also use inputObject for the Start State
 
 ```objectivec
     startState.inputObject = object;
 ```
 
+### Additional logic for States with Blocks
+
+Each State could be managed remotely by using blocks. There are four blocks for four events of each blocks:
+
+```objectivec
+    typedef NS_ENUM(NSInteger, AVPStateLifeCycle) {
+        AVPStateLifeCycleWillEnter = 0,
+        AVPStateLifeCycleDidEnter = 1,
+        AVPStateLifeCycleWillLeave = 2,
+        AVPStateLifeCycleDidLeave = 3,
+    };
+```
+
+So if you'd like to manage your State with some additional logic, you could use special method for that:
+
+```objectivec
+    [state setCompletionBlock:completionBlock stateLifeCycle:AVPStateLifeCycleWillEnter];
+```
