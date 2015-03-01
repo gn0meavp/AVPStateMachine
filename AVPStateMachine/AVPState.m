@@ -99,9 +99,7 @@
     AVPStateCompletionBlock block = (AVPStateCompletionBlock)self.stateCompletionBlocks[[self completionBlockKeyForStateLifeCycle:stateLifeCycle]];
     
     if (block) {
-        
         block(self);
-        
     }
 }
 

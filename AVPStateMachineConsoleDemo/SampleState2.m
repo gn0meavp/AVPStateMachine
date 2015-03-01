@@ -13,6 +13,10 @@
 - (void)start {
     [super start];    
     
+    if (self.inputObject) {
+        NSLog(@"Get some object from the previous state: %@", self.inputObject);
+    }
+    
     NSLog(@"Re");    
     [self performDelegateMethodCompletedWithEventName:kReMiEventName error:nil];
 }
