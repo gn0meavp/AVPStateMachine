@@ -307,7 +307,7 @@
                 
                 AVPState *state = transition.toState;
                 
-                if (state != currentState) {
+                if ([visitedStates containsObject:state] == NO) {
                     result = result && [self visitGraphWithCurrentState:state
                                                       visitedStates:visitedStates
                                                               error:error];
