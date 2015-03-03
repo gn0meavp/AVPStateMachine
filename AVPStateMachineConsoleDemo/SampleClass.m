@@ -110,7 +110,11 @@
     [_stateMachine addTransition:transitionFaFinal eventName:kFaSuccessEventName];
     [_stateMachine addTransition:transitionDoFailed eventName:kDoFailedEventName];
     [_stateMachine addTransition:transitionFaFailed eventName:kFaFailedEventName];
-    
+
+    [transitionStart setCompletionBlock:^(AVPTransition *transition) {
+        NSLog(@"Transition %@ completionBlock invoked", transition);
+    } transitionLifeCycle:AVPTransitionLifeCycleWillTransition];
+
     ////////////////////////////////////////////
     
     // use it in unit tests, may takes some time for traversing
