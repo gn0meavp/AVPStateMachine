@@ -15,7 +15,7 @@
     
     NSLog(@"Do!");
     
-    NSUInteger randValue = arc4random()%3;
+    NSUInteger randValue = arc4random()%4;
     
     if (randValue == 0) {
         
@@ -26,6 +26,9 @@
     }
     else if (randValue == 1) {
         [self performDelegateMethodCompletedWithEventName:kDoFaEventName error:nil];
+    }
+    else if (randValue == 2) {
+        [self performDelegateMethodCompletedWithEventName:kDoDoEventName error:nil];
     }
     else {
         [self performDelegateMethodCompletedWithEventName:kDoFailedEventName error:nil];

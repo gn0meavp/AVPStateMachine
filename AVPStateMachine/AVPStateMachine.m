@@ -307,9 +307,11 @@
                 
                 AVPState *state = transition.toState;
                 
-                result = result && [self visitGraphWithCurrentState:state
+                if (state != currentState) {
+                    result = result && [self visitGraphWithCurrentState:state
                                                       visitedStates:visitedStates
                                                               error:error];
+                }
             }];
         }
     }    

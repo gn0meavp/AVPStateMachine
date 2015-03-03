@@ -92,6 +92,7 @@
     // couple of transitions from doState
     AVPTransition *transitionDoRe = [AVPTransition transitionWithFromState:doState toState:reState];
     AVPTransition *transitionDoFa = [AVPTransition transitionWithFromState:doState toState:faState];
+    AVPTransition *transitionDoDo = [AVPTransition transitionWithFromState:doState toState:doState];
     
     // failure transitions from state which may fail
     AVPTransition *transitionDoFailed = [AVPTransition transitionWithFromState:doState toState:failureFinalState];
@@ -110,6 +111,7 @@
     [_stateMachine addTransition:transitionFaFinal eventName:kFaSuccessEventName];
     [_stateMachine addTransition:transitionDoFailed eventName:kDoFailedEventName];
     [_stateMachine addTransition:transitionFaFailed eventName:kFaFailedEventName];
+    [_stateMachine addTransition:transitionDoDo eventName:kDoDoEventName];
 
     [transitionStart setCompletionBlock:^(AVPTransition *transition) {
         NSLog(@"Transition %@ completionBlock invoked", transition);
