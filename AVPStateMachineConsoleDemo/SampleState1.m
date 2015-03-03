@@ -18,6 +18,10 @@
     NSUInteger randValue = arc4random()%3;
     
     if (randValue == 0) {
+        
+        // passing some object to the next state
+        self.outputObject = @"Sample description that should be transfered to the Re";
+        
         [self performDelegateMethodCompletedWithEventName:kDoReEventName error:nil];
     }
     else if (randValue == 1) {
