@@ -21,8 +21,6 @@
 		C63C35661AA0C696003EBA66 /* AVPState.m in Sources */ = {isa = PBXBuildFile; fileRef = C63C355E1AA0C696003EBA66 /* AVPState.m */; };
 		C63C35671AA0C696003EBA66 /* AVPTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = C63C35611AA0C696003EBA66 /* AVPTransition.m */; };
 		C63C35681AA0C696003EBA66 /* AVPFinalState.m in Sources */ = {isa = PBXBuildFile; fileRef = C63C35631AA0C696003EBA66 /* AVPFinalState.m */; };
-		C63C356A1AA24F61003EBA66 /* libOCMock.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C63C35691AA24F61003EBA66 /* libOCMock.a */; };
-		C63C35A31AA251C1003EBA66 /* libOCMock.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C63C35A21AA251C1003EBA66 /* libOCMock.a */; };
 		C63C35A41AA251E7003EBA66 /* AVPStateMachine.m in Sources */ = {isa = PBXBuildFile; fileRef = C63C355D1AA0C696003EBA66 /* AVPStateMachine.m */; };
 		C63C35A51AA251E7003EBA66 /* AVPState.m in Sources */ = {isa = PBXBuildFile; fileRef = C63C355E1AA0C696003EBA66 /* AVPState.m */; };
 		C63C35A61AA251E7003EBA66 /* AVPTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = C63C35611AA0C696003EBA66 /* AVPTransition.m */; };
@@ -33,6 +31,7 @@
 		C648B83C1AA240170048611D /* AVPStateTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C648B8351AA240170048611D /* AVPStateTests.m */; };
 		C648B83D1AA240170048611D /* AVPTestState.m in Sources */ = {isa = PBXBuildFile; fileRef = C648B8371AA240170048611D /* AVPTestState.m */; };
 		C648B83E1AA240170048611D /* AVPTransitionTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C648B8381AA240170048611D /* AVPTransitionTests.m */; };
+		C6669D4B1AA5A182009A484E /* libOCMock.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C6669D4A1AA5A182009A484E /* libOCMock.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -76,17 +75,6 @@
 		C63C35621AA0C696003EBA66 /* AVPState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AVPState.h; path = AVPStateMachine/AVPState.h; sourceTree = "<group>"; };
 		C63C35631AA0C696003EBA66 /* AVPFinalState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AVPFinalState.m; path = AVPStateMachine/AVPFinalState.m; sourceTree = "<group>"; };
 		C63C35641AA0C696003EBA66 /* AVPFinalState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AVPFinalState.h; path = AVPStateMachine/AVPFinalState.h; sourceTree = "<group>"; };
-		C63C35691AA24F61003EBA66 /* libOCMock.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libOCMock.a; path = "../../../../../Volumes/OCMock 3.1.2/iOS/libOCMock.a"; sourceTree = "<group>"; };
-		C63C35991AA251C1003EBA66 /* NSNotificationCenter+OCMAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSNotificationCenter+OCMAdditions.h"; path = "usr/include/OCMock/NSNotificationCenter+OCMAdditions.h"; sourceTree = "<group>"; };
-		C63C359A1AA251C1003EBA66 /* OCMArg.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OCMArg.h; path = usr/include/OCMock/OCMArg.h; sourceTree = "<group>"; };
-		C63C359B1AA251C1003EBA66 /* OCMConstraint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OCMConstraint.h; path = usr/include/OCMock/OCMConstraint.h; sourceTree = "<group>"; };
-		C63C359C1AA251C1003EBA66 /* OCMLocation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OCMLocation.h; path = usr/include/OCMock/OCMLocation.h; sourceTree = "<group>"; };
-		C63C359D1AA251C1003EBA66 /* OCMMacroState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OCMMacroState.h; path = usr/include/OCMock/OCMMacroState.h; sourceTree = "<group>"; };
-		C63C359E1AA251C1003EBA66 /* OCMock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OCMock.h; path = usr/include/OCMock/OCMock.h; sourceTree = "<group>"; };
-		C63C359F1AA251C1003EBA66 /* OCMockObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OCMockObject.h; path = usr/include/OCMock/OCMockObject.h; sourceTree = "<group>"; };
-		C63C35A01AA251C1003EBA66 /* OCMRecorder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OCMRecorder.h; path = usr/include/OCMock/OCMRecorder.h; sourceTree = "<group>"; };
-		C63C35A11AA251C1003EBA66 /* OCMStubRecorder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OCMStubRecorder.h; path = usr/include/OCMock/OCMStubRecorder.h; sourceTree = "<group>"; };
-		C63C35A21AA251C1003EBA66 /* libOCMock.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libOCMock.a; path = usr/lib/libOCMock.a; sourceTree = "<group>"; };
 		C648B81D1AA23F800048611D /* AVPStateMachineTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AVPStateMachineTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C648B8201AA23F800048611D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C648B8321AA240170048611D /* AVPFinalStateTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AVPFinalStateTests.m; sourceTree = "<group>"; };
@@ -96,6 +84,16 @@
 		C648B8361AA240170048611D /* AVPTestState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AVPTestState.h; sourceTree = "<group>"; };
 		C648B8371AA240170048611D /* AVPTestState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AVPTestState.m; sourceTree = "<group>"; };
 		C648B8381AA240170048611D /* AVPTransitionTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AVPTransitionTests.m; sourceTree = "<group>"; };
+		C6669D411AA5A182009A484E /* NSNotificationCenter+OCMAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSNotificationCenter+OCMAdditions.h"; sourceTree = "<group>"; };
+		C6669D421AA5A182009A484E /* OCMArg.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCMArg.h; sourceTree = "<group>"; };
+		C6669D431AA5A182009A484E /* OCMConstraint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCMConstraint.h; sourceTree = "<group>"; };
+		C6669D441AA5A182009A484E /* OCMLocation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCMLocation.h; sourceTree = "<group>"; };
+		C6669D451AA5A182009A484E /* OCMMacroState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCMMacroState.h; sourceTree = "<group>"; };
+		C6669D461AA5A182009A484E /* OCMock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCMock.h; sourceTree = "<group>"; };
+		C6669D471AA5A182009A484E /* OCMockObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCMockObject.h; sourceTree = "<group>"; };
+		C6669D481AA5A182009A484E /* OCMRecorder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCMRecorder.h; sourceTree = "<group>"; };
+		C6669D491AA5A182009A484E /* OCMStubRecorder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCMStubRecorder.h; sourceTree = "<group>"; };
+		C6669D4A1AA5A182009A484E /* libOCMock.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libOCMock.a; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,8 +108,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C63C356A1AA24F61003EBA66 /* libOCMock.a in Frameworks */,
-				C63C35A31AA251C1003EBA66 /* libOCMock.a in Frameworks */,
+				C6669D4B1AA5A182009A484E /* libOCMock.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -121,7 +118,6 @@
 		C61627E21A8683020001DC08 = {
 			isa = PBXGroup;
 			children = (
-				C63C35691AA24F61003EBA66 /* libOCMock.a */,
 				C61628011A8683D00001DC08 /* AVPStateMachine */,
 				C61627ED1A8683020001DC08 /* AVPStateMachineConsoleDemo */,
 				C648B81E1AA23F800048611D /* AVPStateMachineTests */,
@@ -198,16 +194,16 @@
 		C63C35891AA25127003EBA66 /* OCMock */ = {
 			isa = PBXGroup;
 			children = (
-				C63C35991AA251C1003EBA66 /* NSNotificationCenter+OCMAdditions.h */,
-				C63C359A1AA251C1003EBA66 /* OCMArg.h */,
-				C63C359B1AA251C1003EBA66 /* OCMConstraint.h */,
-				C63C359C1AA251C1003EBA66 /* OCMLocation.h */,
-				C63C359D1AA251C1003EBA66 /* OCMMacroState.h */,
-				C63C359E1AA251C1003EBA66 /* OCMock.h */,
-				C63C359F1AA251C1003EBA66 /* OCMockObject.h */,
-				C63C35A01AA251C1003EBA66 /* OCMRecorder.h */,
-				C63C35A11AA251C1003EBA66 /* OCMStubRecorder.h */,
-				C63C35A21AA251C1003EBA66 /* libOCMock.a */,
+				C6669D411AA5A182009A484E /* NSNotificationCenter+OCMAdditions.h */,
+				C6669D421AA5A182009A484E /* OCMArg.h */,
+				C6669D431AA5A182009A484E /* OCMConstraint.h */,
+				C6669D441AA5A182009A484E /* OCMLocation.h */,
+				C6669D451AA5A182009A484E /* OCMMacroState.h */,
+				C6669D461AA5A182009A484E /* OCMock.h */,
+				C6669D471AA5A182009A484E /* OCMockObject.h */,
+				C6669D481AA5A182009A484E /* OCMRecorder.h */,
+				C6669D491AA5A182009A484E /* OCMStubRecorder.h */,
+				C6669D4A1AA5A182009A484E /* libOCMock.a */,
 			);
 			name = OCMock;
 			sourceTree = "<group>";

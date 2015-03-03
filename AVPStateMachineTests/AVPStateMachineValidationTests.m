@@ -465,5 +465,35 @@
     
 }
 
+- (void)testStateMachineValidationWorksProperlyForCycleGraphs {
+
+    [self addStartAndFinalStates];
+    
+    // state1 does not have any input transitions
+    AVPState *state1 = [AVPState stateWithName:@"state1"];
+    AVPState *state2 = [AVPState stateWithName:@"state2"];
+    AVPState *state3 = [AVPState stateWithName:@"state3"];
+
+    [self.stateMachine addState:state1];
+    [self.stateMachine addState:state2];
+    [self.stateMachine addState:state3];
+
+    AVPTransition *transition0 = [AVPTransition transitionWithFromState:self.stateMachine.startState toState:state1];
+    [self.stateMachine addTransition:transition0 eventName:@"transition0"];
+    AVPTransition *transition1 = [AVPTransition transitionWithFromState:state1 toState:state2];
+    [self.stateMachine addTransition:transition1 eventName:@"transition1"];
+    AVPTransition *transition2 = [AVPTransition transitionWithFromState:state2 toState:state3];
+    [self.stateMachine addTransition:transition2 eventName:@"transition2"];
+    
+    // cycle
+    AVPTransition *transition3 = [AVPTransition transitionWithFromState:state3 toState:state1];
+    [self.stateMachine addTransition:transition3 eventName:@"transition3"];
+
+    AVPTransition *transition4 = [AVPTransition transitionWithFromState:state3 toState:self.stateMachine.successFinalState];
+    [self.stateMachine addTransition:transition4 eventName:@"transitionSuccess"];
+    
+    XCTAssert([self.stateMachine isValidWithError:nil], @"state machine must valid for state machine with cycles");
+    
+}
 
 @end
