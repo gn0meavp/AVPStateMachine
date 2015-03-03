@@ -7,6 +7,8 @@ http://en.wikipedia.org/wiki/Finite-state_machine
 * States inherited from the basic State class
 * Transitions use for connecting States by the coming Events
 * Special States for start and completion (success, failure or cancel)
+* States can be managed by blocks (for willEnter, didEnter, willLeave, didLeave events)
+* Transitions can be managed by blocks (for willTransition, didTransition)
 * Cancellation supports for any State
 * Automatically transfer objects between states
 * Managed State Machine can be easily tested with unit tests
@@ -236,7 +238,7 @@ If you need to start State Machine with some object you could also use inputObje
 
 #### Additional logic for States with Blocks
 
-Each State could be managed remotely by using blocks. There are four blocks for four events of each blocks:
+Each State could be managed to use additional logic for the certain events by using blocks. There are four blocks for four events:
 
 ```objectivec
     typedef NS_ENUM(NSInteger, AVPStateLifeCycle) {
@@ -251,6 +253,25 @@ So if you'd like to manage your State with some additional logic, you could use 
 
 ```objectivec
     [state setCompletionBlock:completionBlock stateLifeCycle:AVPStateLifeCycleWillEnter];
+```
+
+#### Additional logic for Transitions with Blocks
+
+Each Transition also could be managed to use additional logic for the certain events by using blocks. There are two blocks for two events:
+
+```objectivec
+    typedef NS_ENUM(NSInteger, AVPTransitionLifeCycle) {
+        AVPTransitionLifeCycleWillTransition = 0,
+        AVPTransitionLifeCycleDidTransition = 1,
+    };
+```
+
+Here's sample of using:
+
+```objectivec
+    [transition setCompletionBlock:^(AVPTransition *transition) {
+        NSLog(@"Transition %@ completionBlock invoked", transition);
+    } transitionLifeCycle:AVPTransitionLifeCycleWillTransition];
 ```
 
 ## Unit Tests
